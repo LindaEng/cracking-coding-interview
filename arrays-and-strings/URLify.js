@@ -9,6 +9,7 @@
 
 let word = "Mr John Smith   "
 
+//solution 1
 function URLify(str){
     if(!str) return str
     if(/^\s*$/.test(str)) return true
