@@ -4,30 +4,25 @@
 // Output: True (permutations: "taco cat", "atco eta", etc.)
 
 
-//Create an object to store char count. If any char has more than 1 & not even amount, it is not a palindrome.
-
-
+//Using a Set
+//if char exists and not space, delete : add
+//if length <=1 true : false
 function palinPerm(str) {
-    let hash = {}
+    let palinSet = new Set()
 
     for(let i = 0; i < str.length; i++) {
         let c = str[i].toLowerCase()
-        if(hash[c]) {
-            hash[c]++
-        } else if(c !== ' '){
-            hash[c] = 1
+        if(!palinSet.has(c) && str[i] !== ' ') {
+            palinSet.add(c)
+        } else {
+            if(palinSet.has(c)) {
+                palinSet.delete(c)
+            }
         }
+        console.log(palinSet)
     }
-
-    for(let char in hash) {
-        if(hash[char] % 2 !== 0 && hash[char] !== 1){
-            console.log('FALSE',hash[char], hash)
-            return false
-        }
-    }
-    console.log('TRUE',hash)
-    return true
+    return palinSet.size <= 1
 }
 
 
-palinPerm('Tact Coaaaaa')
+palinPerm('Tact Coa')
