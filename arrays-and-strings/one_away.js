@@ -2,7 +2,18 @@
 // EXAMPLE
 // pale, ple -> true pales, pale -> true pale, bale -> true pale, bake -> false
 
+// I: two strings
+// O: boolean
+// C: optimized
+// E: empty string
+
 function oneAway(str1, str2) {
+    //edge cases
+    //if more than 1 edit -> check length
+    let diff = Math.abs(str1.length - str2.length)
+    if(diff > 1) return false
+
+    console.log(s)
     let strSet = new Set()
     for(let i = 0; i < str1.length; i++) {
         let c = str1[i]
